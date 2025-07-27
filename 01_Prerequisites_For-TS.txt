@@ -1,0 +1,51 @@
+Differenciation between JavaScript and typescript
+
+JavaScript is a dynamic single threaded logic based, interpreted scripting language mainly used for
+web development, while TypeScript is a statically typed superset of JavaScript that adds type safety
+and compiles down to JavaScript. TypeScript helps catch errors during development and is better
+suited for large-scale applications, but all valid JavaScript code also works in TypeScript.
+
+allowed vs not allowed ex - 
+
+var userName = "Nizam"
+var age = 21
+var userName = "Nizam.ai"
+
+in js it will not through error but ts does
+because logically we should not re-declear a
+name once decleared already, 
+
+this type of mistakes present in js because
+it was created in hurry within 15 days only
+(type safety is missing in js)
+
+var num = 12;
+var num = "Nizam"; // type 'string' is not assognable in type 'number'. ts(2322)error
+
+js won't complain about it but if it is a number then why we are assigning a name to it logically 
+incorrect to do so
+
+installation and used
+
+1. code editior - vscode
+2. internet & browser
+3. Node installed (node -v)
+4. NPM installed (npm -v)
+5. TS installed (tsc -v)
+
+// i for install -g for globally install
+
+npm i typescript -g // to install typescript
+sudo npm i typescript -g // to install typescript if above not worked
+
+tsc "fileName" // it will run and compile code 
+
+VS Code Extensions -
+
+1. ESLint
+2. JavaScript and TypeScript Nightly - Microsoft
+3. Prettier ESLint  
+4. Pretty TypeScript Errors
+
+
+
