@@ -1,0 +1,15 @@
+create a file, all typescript we write in app.ts meanwhile it
+automatically converted to js after compiling
+
+// every valid JavaScript code is valid in typescript 
+
+// even with error if we request to compilets will compile the code into js the only difference is it will show the errors according to ts rules.
+
+** TS Setup
+
+tsc --init // to initiate ts in project
+npx tsc --init // if above not worked
+tsc app.ts // code compile
+tsc --watch // code auto compile #like-nodemon
+
+
