@@ -1,0 +1,157 @@
+Datatypes in TypeScript
+
+Basically 2 types of Datatypes present
+Primitive type - number, string, boolean, etc
+Reference type - {} , [] , ()
+
+Example to Understand -
+
+num = [1 , 2 , 3 , 4 , 5]
+numTwo = num
+
+console.log(numTwo)
+//output [1 , 2 , 3 , 4 , 5]
+
+now we said pop out 5 from list
+
+console.log(numTwo)
+//output [1 , 2 , 3 , 4]
+
+** but 
+
+console.log(num)
+//output [1 , 2 , 3 , 4]    Why???
+
+because in reference type we get the reference copy of original
+so if we change in that then original will also change
+
+// a ne bola b se aaj se mera ghar bhi tumhara, now for ex b bike lekr bazar gaya
+aur bazar me bike chori ho gayi it mean ki a ki bike chori ho gyi qki bike to reference tha a ka
+or jab a own krta tha bike ko aur b  se chur gayi bike it mean bike a ki chur gyi #simple
+
+** Conclusion
+
+We can copy directly Primitive data type but in reference we get reference of orginal Datatypes
+
+so same sceneario me agar primitive hota to bike b ki churti kyun ki usne bhi sake bike apne liye
+copy li thi
+
+var is depricated so do not use in future
+
+// basic primitive type
+ 
+let a = 12 ; // Nummber
+let b = 12.5 // Nummber
+let c = "Nizam" // string
+let d = true // boolean(true/false)
+
+** Arrays
+
+let arr = [];   //blank array
+let arr = [1, 2 , 3 " Nizam "] // inferr in ts now this is (string | number)[] - (string or number)ka array hai
+
+let arr = [1, 2, 3, {name : "Nizam"}] // (number | { name: string }) ya to number hai ya fir object ka array hai
+
+let arr : number [] = [1 , 2 , 3 , 4] // to declear number now if we add object or name in array it through error in tsc because we had already decleared it in syntax so now it will only & only store number
+
+** Tuples
+
+an array which type is fixed and predefined locations of datatypes shown are known as tuples
+
+let arr: [string, number] = ["Nizam", 21];
+//this is how we declear tuples
+
+** Enums - Enumerations
+
+storing value in key : value pairs with some extra powers known as Enums.
+
+enum userRoles{
+    ADMIN = "admin",
+    GUEST = "guest",
+    SUPER_ADMIN = "super_admin"
+}
+
+userRoles.SUPER_ADMIN   //this is how we can use enums
+
+// 2nd ex
+
+enum statusErrorCodes{
+    ABANDONED = "cart ABANDONED #500 error",
+    NOTFOUND = "Page not found #404 error"
+}
+
+statusErrorCodes.NOTFOUND
+
+** any, unknown, Null, void, never
+
+let a : number; // when we know upcoming data will be number or we want to declear type we declear like this
+
+let a;   // what if we don't know the typeof then we use any, this is how we declear
+
+----------- Any -------------
+
+** we need to make sure that our variables type should never be any so that we do not get stuck in getting wrong datatype constraint.
+
+in any we can say TypeScript stops his following rule of datatypes, you decide by your self its datatype
+
+** any is a datatype constraint where we don't know which type of datatype we are going to store in future.
+
+
+----------- unknown -------------
+
+insted we can use unknown--
+
+let a : unknown;
+a = 12;
+a = "Nizam";
+
+**in this place any would allowed it to go but due to unknown, TypeScript will say that in the beginning i allowed you because you were unaware of its datatype but for using it now decleare it then only i will allow you.
+
+if (typeof a === "string")
+a.toUpperCase();
+
+due to conditional checking of string it only allowed the properties of string to use
+
+
+------------- void -----------------
+
+any function which is not returning any thing that must be decleared void .
+
+function printName(): void{
+    console.log("Hello World, Nizam!")
+}
+
+** but what if it was returing something then? then we have to declear its datatype
+
+function num(): number{
+    return 12;
+}
+
+------------ Null ------------
+
+** when we find something and nothing then we return null for ex- if we are looking for temp of x city but retured data is came 0 due to no data recieved from server but in this case will will asume that the current temp is 0 and for avoiding such cases we use null, means no data 
+
+let a: null;
+
+what if we fatched again and we get a = 12 but due to null it will through error that you have said already that it is null
+
+so to solve this we will use this syntax
+let a : number | null;
+
+it simply mean either it will be number or null, so if number recieved it show number but if no data found it will auto show null
+
+-------------- undefined ----------
+
+just like js if we do not give value to a data type it will be undefined
+
+let a: undefined;
+
+------------- never ----------
+
+never will never let to run the code after it
+
+function abcd : never{
+    while (true){}
+}
+abcd();
+console.log('hello world') // it will never let run console because it will be always remain in abcd function 
