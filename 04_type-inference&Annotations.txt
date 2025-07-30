@@ -1,0 +1,23 @@
+-------- Type inference -----------
+
+those datatypes which we have not decleared but TypeScript compiled
+itself and checked its data type is called type inference
+
+ex - let a = 12 ; //we have not decleared type of number here
+
+----------------- Annotations-------------
+
+declear its datatype in variables from very beginning is called Annotations.
+ex - 
+let a : number | boolean ;
+
+a = 12;
+
+****** Type of Annotations ex-
+
+let a = boolean;
+
+function abcd(a: number, b: string): void {}
+
+
+
