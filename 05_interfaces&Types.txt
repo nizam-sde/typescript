@@ -1,0 +1,71 @@
+****** interfaces & type Aliases
+
+in variables we declear datatypes what if we talk about objects, in objects a user can send name
+number loggedIn password etc how will ts will follow its rule for such cases we use interfaces
+
+so in such cases we declear earlier then we take function in use like this
+
+interface user {
+    email : string,
+    password: string,
+    isLoggedIn: boolean
+}
+
+function getDataOfUser(obj : user){}
+
+getDataOfUser({email: 'Nizam', password: 'abc123', isLoggedIn: true})
+
+now inside the function we can use all the properties and methods using .
+
+-------- Extending interface
+
+interface user{
+    name: string;
+    email: string;
+    password: string;
+}
+
+interface Admin extends user{
+    admin : boolean;
+}
+
+function logIn(obj: Admin){
+    obj.admin
+}
+
+through this we can share the access and extra power to specific user
+
+
+** if we create to different interface but same name then only one interface created
+and properties merged in between so it mean if we access one obj actually we will get both obj properties
+
+----------- Type Aliases
+** creating custom datatypes
+
+type numericAlpha = number | string | null;
+
+let a = numericAlpha;
+
+------------ Intersection Types
+
+** Union Intersection
+
+type user = {
+    name: string,
+    email: string
+}
+
+type Admin = user & {
+    getDetails(Employe: string): void
+}
+
+function abcd (a: Admin){
+    a.
+}
+
+** in interface when we were declearing 2 same name interface it was allowed but in 
+Intersection if we do the same it will through error // not allowed
+
+** interface is for creating object shape but Intersection is for creating datatypes
+
+ 
